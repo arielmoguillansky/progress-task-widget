@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import TaskProgressWidget from "./TaskProgressWidget";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// This will be an embedded widget, get widget's placeholder by getting all elements with the widget class
+const widgetDivs = document.querySelectorAll(".task-progress-widget");
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Look for all elements identified by class, and inject a new widget instance.
+widgetDivs.forEach((div) => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <TaskProgressWidget symbol={div.dataset.symbol} />
+    </React.StrictMode>,
+    div
+  );
+});
