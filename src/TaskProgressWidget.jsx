@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import icon from "./icons/icon.svg";
+import check from "./icons/check.svg";
 import "./TaskProgressWidget.css";
+import { CheckboxComponent } from "./components/CheckboxComponent";
 
 const TaskProgressWidget = () => {
   const [completedTasks, setCompletedTasks] = useState({});
@@ -97,17 +100,57 @@ const TaskProgressWidget = () => {
 
       {progressData.map((group) => (
         <div className="accordeon" key={group.name}>
-          <h3>{group.name}</h3>
+          <div className="group-heading">
+            <img src={icon} alt="group icon" />
+            <h3>{group.name}</h3>
+          </div>
           <ul>
             {group.tasks.map((task, index) => (
               <li key={index}>
-                <input
-                  type="checkbox"
-                  id={`${group.name}-${index}`}
-                  checked={completedTasks[group.name][index]}
-                  onChange={() => handleTaskToggle(group.name, index)}
-                />
                 <label htmlFor={`${group.name}-${index}`}>
+                  {/* <CheckboxComponent
+                    isChecked={completedTasks[group.name][index]}
+                  /> */}
+                  {completedTasks[group.name][index] ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <rect width="16" height="16" rx="4" fill="#00B797" />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6.49574 10.1007L3.888 7.30201L3 8.24832L6.49574 12L13 4.94631L12.1182 4L6.49574 10.1007Z"
+                        fill="white"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="15"
+                        height="15"
+                        rx="3.5"
+                        stroke="#999999"
+                      />
+                    </svg>
+                  )}
+                  <input
+                    type="checkbox"
+                    id={`${group.name}-${index}`}
+                    checked={completedTasks[group.name][index]}
+                    onChange={() => handleTaskToggle(group.name, index)}
+                  />
                   {task.description}
                 </label>
               </li>

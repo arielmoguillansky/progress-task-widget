@@ -31,7 +31,12 @@
   font-weight: 600;
 }
 
-.accordeon h3 {
+.accordeon .group-heading {
+  display: flex;
+  gap: 16px;
+}
+
+.accordeon .group-heading h3 {
   font-family: "OpenSansReg";
   font-weight: 400;
   font-size: 18px;
@@ -49,4 +54,28 @@
 .accordeon ul li label{
   margin-left: 16px;
   font-weight: 400;
+}
+
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.checkbox {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background: #fff;
+  border: 2px #ddd solid;
+  margin-right: 4px;
+}
+
+.checkbox--active {
+  border-color: #00B797;
+  background: #00B797;
 }
