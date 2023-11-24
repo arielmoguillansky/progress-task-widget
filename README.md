@@ -1,3 +1,13 @@
+# - Work in progress -
+- [x] Create react app skeleton
+- [x] Define component
+- [x] Implement fetching data
+- [x] Implement states
+- [x] Implement calculations
+- [x] Create basic elements
+- [ ] Style widget
+- [ ] Implement compiler for widget building
+
 # React - Progress task Widget
 
 This project contains a widget that can be embedded in a website made with React. No extra libraries were used
