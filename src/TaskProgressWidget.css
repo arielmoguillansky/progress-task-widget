@@ -1,0 +1,52 @@
+.task-progress-widget {
+  background-color: white;
+  max-width: 820px;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  padding: 16px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.task-progress-widget .header {
+  padding: 24px;
+}
+
+.task-progress-widget .header h2 {
+  font-family: 'OpenSansBold';
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.task-progress-widget .header .progress-bar-wrapper {
+  background-color: #F2FBFA;
+  width: 100%;
+  border-radius: 24px;
+  
+}
+
+.task-progress-widget .header .progress-bar-wrapper span {
+  color: white;
+  font-family: 'OpenSansSemiBold';
+  font-weight: 600;
+}
+
+.accordeon h3 {
+  font-family: "OpenSansReg";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.accordeon ul {
+  padding: 0;
+}
+
+.accordeon ul li {
+  list-style: none;
+}
+
+.accordeon ul li label{
+  margin-left: 16px;
+  font-weight: 400;
+}

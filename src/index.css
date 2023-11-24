@@ -1,13 +1,36 @@
+@font-face {
+  font-family: 'OpenSansReg';
+  src: url(./fonts/open-sans/OpenSans-Regular.woff2) format('woff'),
+       url(./fonts/open-sans/ttf/OpenSans-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'OpenSansMed';
+  src: url(./fonts/open-sans/OpenSans-Medium.woff2) format('woff'),
+       url(./fonts/open-sans/ttf/OpenSans-Medium.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'OpenSansSemiBold';
+  src: url(./fonts/open-sans/OpenSans-SemiBold.woff2) format('woff'),
+       url(./fonts/open-sans/ttf/OpenSans-SemiBold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'OpenSansBold';
+  src: url(./fonts/open-sans/OpenSans-Bold.woff2) format('woff'),
+       url(./fonts/open-sans/ttf/OpenSans-Bold.ttf) format('truetype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: 'OpenSansReg', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }

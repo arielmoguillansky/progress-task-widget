@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./TaskProgressWidget.css";
 
 const TaskProgressWidget = () => {
   const [completedTasks, setCompletedTasks] = useState({});
@@ -67,20 +68,35 @@ const TaskProgressWidget = () => {
       0
     );
 
-    return (completedValue / totalPossibleValue) * 100 || 0; // Prevent division by zero - if no tasks with values were given
+    return Math.round((completedValue / totalPossibleValue) * 100 || 0); // Prevent division by zero - if no tasks with values were given
   };
 
   if (loading) {
     return <p>Loading...</p>;
   }
 
+  const progressBarStyle = {
+    height: "100%",
+    width: `${calculateCompletion()}%`,
+    backgroundColor: "#00B797",
+    borderRadius: 24,
+    textAlign: "right",
+    padding: "2px 16px",
+  };
+
   return (
     <div>
-      <h2>Profile Creation Progress</h2>
-      <p>Completion: {calculateCompletion()}%</p>
+      <div className="header">
+        <h2>Lodgify Grouped Tasks</h2>
+        <div className="progress-bar-wrapper">
+          <div style={progressBarStyle} className="progress-bar">
+            <span>{calculateCompletion()}%</span>
+          </div>
+        </div>
+      </div>
 
       {progressData.map((group) => (
-        <div key={group.name}>
+        <div className="accordeon" key={group.name}>
           <h3>{group.name}</h3>
           <ul>
             {group.tasks.map((task, index) => (
@@ -92,7 +108,7 @@ const TaskProgressWidget = () => {
                   onChange={() => handleTaskToggle(group.name, index)}
                 />
                 <label htmlFor={`${group.name}-${index}`}>
-                  {task.description} - {task.value}
+                  {task.description}
                 </label>
               </li>
             ))}
