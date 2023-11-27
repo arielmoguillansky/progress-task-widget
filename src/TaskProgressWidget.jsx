@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import icon from "./icons/icon.svg";
 import completed from "./icons/icon-check.svg";
-import check from "./icons/check.svg";
 import arrow from "./icons/arrow.svg";
 import "./TaskProgressWidget.css";
 import { CheckboxComponent } from "./components/CheckboxComponent";
+import { calculateCompletion, groupCompleted } from "./utils/helpers";
 
 const TaskProgressWidget = () => {
   const [completedTasks, setCompletedTasks] = useState({});
@@ -75,42 +75,6 @@ const TaskProgressWidget = () => {
     });
   };
 
-  const groupCompleted = (tasks) => {
-    if (tasks) {
-      const totalPossibleValue = tasks.reduce(
-        (taskCount, task) => taskCount + task.checked,
-        0
-      );
-      return tasks.length === totalPossibleValue;
-    }
-  };
-
-  const calculateCompletion = () => {
-    // sum up the values of all tasks across all groups
-    const totalPossibleValue = progressData.reduce(
-      (count, group) =>
-        count +
-        group.tasks.reduce((taskCount, task) => taskCount + task.value, 0),
-      0
-    );
-
-    // sum up the values of checked tasks across all groups
-    const completedValue = progressData.reduce(
-      (count, group) =>
-        count +
-        group.tasks.reduce(
-          (taskCount, task, index) =>
-            completedTasks[group.name][index]
-              ? taskCount + task.value
-              : taskCount,
-          0
-        ),
-      0
-    );
-
-    return Math.round((completedValue / totalPossibleValue) * 100 || 0); // Prevent division by zero - if no tasks with values were given
-  };
-
   const toggleGroup = (groupName) => {
     setExpandedGroups((prevGroups) =>
       prevGroups.includes(groupName)
@@ -125,7 +89,7 @@ const TaskProgressWidget = () => {
 
   const progressBarStyle = {
     height: "100%",
-    width: `${calculateCompletion()}%`,
+    width: `${calculateCompletion(progressData, completedTasks)}%`,
     backgroundColor: "#00B797",
     borderRadius: 24,
     textAlign: "right",
@@ -138,7 +102,7 @@ const TaskProgressWidget = () => {
         <h2>Lodgify Grouped Tasks</h2>
         <div className="progress-bar-wrapper">
           <div style={progressBarStyle} className="progress-bar">
-            <span>{calculateCompletion()}%</span>
+            <span>{calculateCompletion(progressData, completedTasks)}%</span>
           </div>
         </div>
       </div>
@@ -176,40 +140,9 @@ const TaskProgressWidget = () => {
                 {group.tasks.map((task, index) => (
                   <li key={index}>
                     <label htmlFor={`${group.name}-${index}`}>
-                      {completedTasks[group.name][index] ? (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                        >
-                          <rect width="16" height="16" rx="4" fill="#00B797" />
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M6.49574 10.1007L3.888 7.30201L3 8.24832L6.49574 12L13 4.94631L12.1182 4L6.49574 10.1007Z"
-                            fill="white"
-                          />
-                        </svg>
-                      ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                        >
-                          <rect
-                            x="0.5"
-                            y="0.5"
-                            width="15"
-                            height="15"
-                            rx="3.5"
-                            stroke="#999999"
-                          />
-                        </svg>
-                      )}
+                      <CheckboxComponent
+                        checked={completedTasks[group.name][index]}
+                      />
                       <input
                         type="checkbox"
                         id={`${group.name}-${index}`}
