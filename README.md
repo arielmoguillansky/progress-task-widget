@@ -6,7 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## How to use it
 
-`npm run build` creates a build directory with a production build of the app. Set up an HTTP server so that a visitor to the site is served index.html, and requests to static paths like /static/js/main.<hash>.js are served with the contents of the /static/js/main.<hash>.js file.
+`npm run build` creates a build directory with a production build of the app. Set up an HTTP server so that a visitor to the target site is served index.html, and requests to static paths like /static/js/main.<hash>.js are served with the contents of the /static/js/main.<hash>.js file.
+This widget relies on external stylesheets and js files, so they must be included as well in the target website.
 
 ## Available Scripts
 
