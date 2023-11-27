@@ -38,6 +38,9 @@
 
 .accordion-row {
   padding: 24px;
+}
+
+.accordion-row:not(:last-of-type) {
   border-bottom: 1px solid #DDDDDD;
 }
 
@@ -66,7 +69,6 @@
 
 .accordion .group-heading .heading-action.active img {
   transform: rotate(0deg);
-  transition: all .5s linear;
 }
 
 .accordion .group-heading h3 {
