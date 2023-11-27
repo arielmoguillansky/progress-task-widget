@@ -31,29 +31,67 @@
   font-weight: 600;
 }
 
-.accordeon .group-heading {
+.accordion {
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+}
+
+.accordion-row {
+  padding: 24px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.accordion .group-heading {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion .group-heading .heading-title {
   display: flex;
   gap: 16px;
 }
 
-.accordeon .group-heading h3 {
+.accordion .group-heading .heading-action {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  color: #999999;
+}
+
+.accordion .group-heading .heading-action img {
+  transform: rotate(180deg);
+}
+
+.accordion .group-heading .heading-action.active img {
+  transform: rotate(0deg);
+  transition: all .5s linear;
+}
+
+.accordion .group-heading h3 {
   font-family: "OpenSansReg";
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
 }
 
-.accordeon ul {
+.accordion ul {
   padding: 0;
 }
 
-.accordeon ul li {
+.accordion ul li {
   list-style: none;
+  padding: 16px;
+  margin-bottom: 8px;
 }
 
-.accordeon ul li label{
-  margin-left: 16px;
+.accordion ul li label{
   font-weight: 400;
+}
+
+.accordion ul li label span {
+  margin-left: 16px;
 }
 
 input[type="checkbox"] {
