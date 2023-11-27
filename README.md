@@ -1,18 +1,12 @@
-# - Work in progress -
-- [x] Create react app skeleton
-- [x] Define component
-- [x] Implement fetching data
-- [x] Implement states
-- [x] Implement calculations
-- [x] Create basic elements
-- [ ] Style widget
-- [ ] Implement compiler for widget building
-
 # React - Progress task Widget
 
-This project contains a widget that can be embedded in a website made with React. No extra libraries were used
+This project contains a widget made with React that can be embedded in a website. No extra libraries or plugins used.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## How to use it
+
+`npm run build` creates a build directory with a production build of the app. Set up an HTTP server so that a visitor to the site is served index.html, and requests to static paths like /static/js/main.<hash>.js are served with the contents of the /static/js/main.<hash>.js file.
 
 ## Available Scripts
 
@@ -50,3 +44,8 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+# - Things to improve -
+
+- [ ] Add transitions and animations for a smoother UI
+- [ ] SEO
