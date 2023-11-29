@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import TaskProgressWidget from "./TaskProgressWidget";
+import TaskProgressContainer from "./TaskProgressContainer";
 
 // This will be an embedded widget, get widget's placeholder by getting all elements with the widget class
 const widgetDivs = document.querySelectorAll(".task-progress-widget");
@@ -10,7 +10,7 @@ const widgetDivs = document.querySelectorAll(".task-progress-widget");
 widgetDivs.forEach((div) => {
   ReactDOM.render(
     <React.StrictMode>
-      <TaskProgressWidget symbol={div.dataset.symbol} />
+      <TaskProgressContainer symbol={div.dataset.symbol} />
     </React.StrictMode>,
     div
   );
