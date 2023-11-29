@@ -1,6 +1,6 @@
-# React - Progress task Widget
+# React + TypeScript - Progress task Widget
 
-This project contains a widget made with React that can be embedded in a website. No extra libraries or plugins used.
+This project contains a widget made with React and TS that can be embedded in a website. No extra libraries or plugins used.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
